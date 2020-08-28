@@ -1,4 +1,5 @@
 const express = require("express"); //not defaul
+const bodyParser = require("body-parser");
 
 const app = express();
 
@@ -9,7 +10,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); //for parsing multipart form data
 
 //POST,GET REQUESTS
-app.get("hello", (req, res) => {
+app.get('/hello', (req, res) => {
   console.log("hello");
   res.send("greetings!");
 });
