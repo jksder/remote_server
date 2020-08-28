@@ -20,7 +20,6 @@ app.get("/get_version", (req, res) => {
     } else if (stderr) {
       console.log(`stdouterr:${stderr}`);
     } else {
-      console.log(`stdout:\n${stdout}`);
       res.send(stdout);
     }
   });
