@@ -2,6 +2,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import ApprovalCard from './ApprovalCard';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+
 
 // Import Compponents
 import CommentDetail from "./CommentDetail";
@@ -13,18 +15,21 @@ var content = ["Nice Work!", "10/10 Best blog ever", "Can't believe I haven't se
 
 var comments = [];
 for (let k = 0; k < 3; k++) {
-    comments.push(
-        <ApprovalCard key={names[k] + "_status"}>
-            <CommentDetail key={names[k]} commenter={names[k]} time={times[k]} content={content[k]} />
-        </ApprovalCard>
-        );
+  comments.push(
+    <ApprovalCard key={names[k] + "_status"}>
+      <CommentDetail key={names[k]} commenter={names[k]} time={times[k]} content={content[k]} />
+    </ApprovalCard>
+  );
 }
 
 // Create a react component
 function App() {
   return (
-    <div className="ui container comments">
-        {comments}
+    <div className='ui class container'>
+      <Router>
+        <Route path='/' exact render={() => comments}></Route>
+        <Route path='/page2' render={() => <ApprovalCard />}></Route>
+      </Router>
     </div>
   );
 }
